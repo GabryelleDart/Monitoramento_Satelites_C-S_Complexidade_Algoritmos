@@ -1,8 +1,8 @@
 package br.edu.ifba.satelites;
 
 import br.edu.ifba.satelites.impl.Leitura;
-import br.edu.ifba.satelites.impl.Satelite;
 import br.edu.ifba.satelites.impl.OperacoesImpl;
+import br.edu.ifba.satelites.impl.Satelite;
 import br.edu.ifba.satelites.operacoes.Operacoes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -34,14 +34,14 @@ public class Rotas {
     }
 
     @POST
-    @Path("{id}/{temperatura}/{fumaca}")
+    @Path("/{id}/{temperatura}/{deteccaoFumaca}") // Adicionado a barra inicial implícita e padronizado o nome
     public Response gravarLeitura(
             @PathParam("id") String idSatelite, 
             @PathParam("temperatura") int temperatura, 
-            @PathParam("fumaca") boolean temFumaca) {
+            @PathParam("deteccaoFumaca") boolean deteccaoFumaca) { // Alinhado com o nome da URL
         
         Satelite satelite = new Satelite(idSatelite, "Militar-Geostacionario");
-        Leitura leitura = new Leitura(temperatura, temFumaca);
+        Leitura leitura = new Leitura(temperatura, deteccaoFumaca); // Usando a variável padronizada
 
         getOperacoes().gravar(satelite, leitura);
 
