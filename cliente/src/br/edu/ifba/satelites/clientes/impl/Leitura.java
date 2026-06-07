@@ -1,22 +1,25 @@
 package br.edu.ifba.satelites.clientes.impl;
 
 public class Leitura {
-    private Integer temperatura = 0;
-    private Boolean deteccaoFumaca = false;
+    private Integer temperatura_de_brilho = 0;
+    private Boolean deteccao_fumaca = false;
 
     // Complexidade: O(1) - Construtor padrão para inicializar as variáveis na memória.
-    public Leitura(Integer temperatura, Boolean deteccaoFumaca) {
-        this.temperatura = temperatura;
-        this.deteccaoFumaca = deteccaoFumaca;
+    public Leitura(Integer temperatura_de_brilho, boolean deteccao_fumaca) {
+        this.temperatura_de_brilho = temperatura_de_brilho;
+        this.deteccao_fumaca = deteccao_fumaca;
     }
-    
-    public Integer getTemperatura() { return temperatura; }
-    public void setTemperatura(Integer temperatura) { this.temperatura = temperatura; }
-    public Boolean getDeteccaoFumaca() { return deteccaoFumaca; }
-    public void setDeteccaoFumaca(Boolean deteccaoFumaca) { this.deteccaoFumaca = deteccaoFumaca; }
-
+    // Complexidade: O(1)
+    public Integer getTemperatura_de_brilho() { return temperatura_de_brilho; }
+    // Complexidade: O(1)
+    public void setTemperatura_de_brilho(Integer temperatura_de_brilho) { this.temperatura_de_brilho = temperatura_de_brilho; }
+    // Complexidade: O(1)
+    public boolean getDeteccao_fumaca() { return deteccao_fumaca; }
+    // Complexidade: O(1)
+    public void setDeteccao_fumaca(boolean deteccao_fumaca) { this.deteccao_fumaca = deteccao_fumaca; }
+    // Complexidade: O(1)
     @Override
     public String toString() {
-        return "temperatura: " + temperatura + ", fumaça detectada: " + deteccaoFumaca;
+        return "temperatura: " + temperatura_de_brilho + ", fumaça detectada: " + deteccao_fumaca;
     }
 }

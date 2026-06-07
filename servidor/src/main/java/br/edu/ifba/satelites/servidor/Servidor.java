@@ -1,4 +1,4 @@
-package br.edu.ifba.satelites;
+package br.edu.ifba.satelites.servidor;
 
 import java.io.IOException;
 import java.net.URI;
@@ -10,9 +10,9 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class Servidor {
 
     private static final String BASE_URL = "http://0.0.0.0:8080/";
-
+    // Complexidade: O(1)
     private static HttpServer iniciarServidor() {
-        ResourceConfig configuracao = new ResourceConfig().packages("br.edu.ifba.satelites");
+        ResourceConfig configuracao = new ResourceConfig().packages("br.edu.ifba.satelites.servidor");
         HttpServer servidor = GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URL), configuracao);
         return servidor;
     }
@@ -26,5 +26,6 @@ public class Servidor {
         System.out.println("======================================================");
         System.in.read();
         servidor.shutdown();
+        System.out.println("Servidor derrubado.");
     }
 }
